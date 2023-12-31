@@ -2,55 +2,69 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:simpleproject/musicCodec.dart';
+import 'controller.dart';
 
 void main() {
-  runApp(const MusicPlayer());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MusicPlayer());
 }
 
 class MusicPlayer extends StatelessWidget {
-  const MusicPlayer({super.key});
+  MusicCodec codec = MusicCodec();
+  MusicPlayer({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       //appBar: AppBar(),
-      home: MusicBody(),
+      home: MusicBody(
+        onPlay: (){
+          codec.intiPlayer('C://Users/pars/Desktop/music/test.mp3');
+          //codec.playMusic();
+        },
+      ),
     );
   }
 }
 
 class MusicBody extends StatelessWidget {
-  const MusicBody({super.key});
+  final VoidCallback onPlay;
+  MusicBody({required this.onPlay,super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MusicLogo(),
-        SongName(),
-        ArtistName(),
-        MusicSickbar(),
-        Controller(),
+         SongName(),
+         ArtistName(),
+         MusicSickbar(),
+         Controller(
+           onPlayMusicClicked:onPlay,
+         ),
       ],
     );
   }
 }
 
-class MusicLogo extends StatelessWidget {
+class MusicLogo extends StatelessWidget{
   const MusicLogo({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
         padding:
             const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-        width: 205,
-        height: 205,
+        width: 200,
+        height: 200,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('image/alen.jpg'), fit: BoxFit.cover),
+            image:  const DecorationImage(
+                image: AssetImage("image/test.jpg"),
+                fit: BoxFit.cover),
             border: Border.all(
               width: 2,
             ),
-            borderRadius: BorderRadius.all(Radius.circular(60))));
+            borderRadius: const BorderRadius.all(Radius.circular(60)))
+    );
   }
 }
 
@@ -75,27 +89,6 @@ class MusicSickbar extends StatelessWidget {
             }));
   }
 }
-
-class Controller extends StatelessWidget {
-  const Controller({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RepeatMusicButton(),
-              PreviousMusicButton(),
-              PlayMusicButton(),
-              NextMusicButton(),
-              LikeMusicButton()
-            ],
-          )),
-    );
-  }
-}
-
 class ArtistName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -113,78 +106,5 @@ class SongName extends StatelessWidget {
       'Soul and Mind',
       style: GoogleFonts.pacifico(fontSize: 22),
     );
-  }
-}
-
-class RepeatMusicButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          //print("add clicked");
-        },
-        icon: const Icon(
-          Icons.repeat_rounded,
-          color: Colors.black,
-          size: 20,
-        ));
-  }
-}
-
-class PreviousMusicButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          //print("add clicked");
-        },
-        icon: const Icon(
-          Icons.skip_previous_rounded,
-          color: Colors.black,
-          size: 20,
-        ));
-  }
-}
-
-class PlayMusicButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: Colors.pink,
-      child: const Icon(
-        Icons.play_arrow_rounded,
-        color: Colors.white,
-        size: 40,
-      ),
-    );
-  }
-}
-
-class NextMusicButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-        onPressed: () {
-          //print("add clicked");
-        },
-        icon: const Icon(
-          Icons.skip_next_rounded,
-          color: Colors.black,
-          size: 20,
-        ));
-  }
-}
-
-class LikeMusicButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          CupertinoIcons.heart,
-          color: Colors.black,
-          size: 20,
-        ));
   }
 }
