@@ -1,7 +1,8 @@
 # music-player
-hi guys :)\n
-I decided to learn a new stack and sdk and you know what is better choice than FLUTTER(dart). 
-first what is flutter?
+hi guys :)
+
+I decided to learn a new stack-sdk and you know what is better choice than FLUTTER(dart). 
+first what is flutter? 
 flutter is a sdk for front-end perpose but ofcourse it handle back-end too.
 base of that sdk is Dart and this language is using for two part, front and back -end.
 also flutter is a cross platform sdk its mean that you can write app
