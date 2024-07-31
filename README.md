@@ -1,5 +1,5 @@
 # music-player
-hi guys :)
+hi guys :)\n
 I decided to learn a new stack and sdk and you know what is better choice than FLUTTER(dart). 
 first what is flutter?
 flutter is a sdk for front-end perpose but ofcourse it handle back-end too.
