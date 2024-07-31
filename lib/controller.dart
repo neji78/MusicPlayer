@@ -9,8 +9,7 @@ class Controller extends StatelessWidget {
   const Controller({required this.onPlayMusicClicked,super.key});
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
+    return  Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -23,8 +22,8 @@ class Controller extends StatelessWidget {
               NextMusicButton(),
               LikeMusicButton()
             ],
-          )),
-    );
+          ));
+
   }
 }
 
@@ -37,8 +36,8 @@ class RepeatMusicButton extends StatelessWidget {
         },
         icon: const Icon(
           Icons.repeat_rounded,
-          color: Colors.black,
-          size: 20,
+          color: Colors.white,
+          size: 30,
         ));
   }
 }
@@ -52,8 +51,8 @@ class PreviousMusicButton extends StatelessWidget {
         },
         icon: const Icon(
           Icons.skip_previous_rounded,
-          color: Colors.black,
-          size: 20,
+          color: Colors.white,
+          size: 30,
         ));
   }
 }
@@ -84,8 +83,8 @@ class NextMusicButton extends StatelessWidget {
         },
         icon: const Icon(
           Icons.skip_next_rounded,
-          color: Colors.black,
-          size: 20,
+          color: Colors.white,
+          size: 30,
         ));
   }
 }
@@ -97,8 +96,8 @@ class LikeMusicButton extends StatelessWidget {
         onPressed: () {},
         icon: const Icon(
           CupertinoIcons.heart,
-          color: Colors.black,
-          size: 20,
+          color: Colors.white,
+          size: 30,
         ));
   }
 }
