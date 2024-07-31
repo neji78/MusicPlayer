@@ -19,8 +19,8 @@ class MusicPlayer extends StatelessWidget {
       //appBar: AppBar(),
       home: MusicBody(
         onPlay: (){
-          codec.intiPlayer('C://Users/pars/Desktop/music/test.mp3');
-          //codec.playMusic();
+          // codec.intiPlayer('C://Users/pars/Desktop/music/test.mp3');
+           codec.playMusic(musicUrl:'music/test.mp3');
         },
       ),
     );

@@ -13,6 +13,7 @@ dependencies:
   google_fonts: ^6.1.0
   audio_video_progress_bar: ^1.0.1
   just_audio: ^0.9.36
+  flutter_media_metadata: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -22,6 +23,6 @@ flutter:
   assets:
     - image/alen.jpg
     - image/test.jpg
-    - muisc/test.mp3
+    - music/test.mp3
   uses-material-design: true
 
