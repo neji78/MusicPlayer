@@ -21,8 +21,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 flutter:
   assets:
-    - image/alen.jpg
     - image/test.jpg
-    - music/test.mp3
   uses-material-design: true
 
